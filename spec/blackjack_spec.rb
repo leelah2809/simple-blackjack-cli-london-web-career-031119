@@ -21,7 +21,7 @@ describe "#display_card_total" do
   end
 
   it "prints the value of the cards to the screen" do
-    expect($stdout).to receive(:puts).with("Your cards add up to 8")
+    expect($stdout).to receive(:puts).with(/Your cards add up to /)
     display_card_total(8)
   end
 
@@ -64,7 +64,7 @@ describe "#initial_round" do
 
   it "calls on the '#display_card_total' to print sum of cards" do
     expect(self).to receive(:deal_card).at_least(:twice).and_return(6)
-    expect($stdout).to receive(:puts).with(/Your cards add up to /)
+    expect($stdout).to receive(:puts).with( "Your cards add up to 12")
     initial_round
   end
 
